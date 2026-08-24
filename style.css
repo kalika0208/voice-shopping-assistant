@@ -1,0 +1,220 @@
+/* keeping the design minimal + clean like the brief asked (minimalist interface) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px 16px 60px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.lang-row select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.mic-section {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* the mic button is the star of the show, made it big on purpose */
+.mic-btn {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: none;
+  background: #4a6cf7;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(74, 108, 247, 0.4);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.mic-btn:hover {
+  transform: scale(1.05);
+}
+
+.mic-btn.recording {
+  background: #ef4444;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  70% { box-shadow: 0 0 0 18px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+#micStatus {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.loading {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #4a6cf7;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.feedback {
+  background: #eef1ff;
+  border: 1px solid #c9d3ff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.text-input-row, .search-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.text-input-row input, .search-row input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.text-input-row button {
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  background: #4a6cf7;
+  color: white;
+  cursor: pointer;
+}
+
+.suggestions {
+  margin-bottom: 18px;
+}
+
+.suggestions h3, .list-section h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  background: #eef1ff;
+}
+
+.shopping-list {
+  background: white;
+  border-radius: 10px;
+  padding: 8px;
+  min-height: 60px;
+}
+
+.empty-msg {
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 14px 0;
+}
+
+.category-group {
+  margin-bottom: 10px;
+}
+
+.category-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 0.05em;
+  margin: 8px 4px 4px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-qty {
+  color: #888;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 1rem;
+}

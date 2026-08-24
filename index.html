@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voice Shopping Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- main app wrapper, keeping it simple since this is just an assignment demo -->
+  <div class="app">
+    <header>
+      <h1>🛒 Voice Shopping Assistant</h1>
+      <p class="subtitle">Talk to your shopping list</p>
+    </header>
+
+    <!-- language picker for multilingual support -->
+    <div class="lang-row">
+      <label for="langSelect">Language:</label>
+      <select id="langSelect">
+        <option value="en-US">English</option>
+        <option value="hi-IN">Hindi</option>
+        <option value="es-ES">Spanish</option>
+        <option value="fr-FR">French</option>
+      </select>
+    </div>
+
+    <!-- big mic button, this is the main way to interact -->
+    <div class="mic-section">
+      <button id="micBtn" class="mic-btn">🎤</button>
+      <p id="micStatus">Tap mic and speak (e.g. "Add 2 bottles of milk")</p>
+      <p id="loading" class="loading hidden">Listening...</p>
+    </div>
+
+    <!-- shows what was heard + what happened, real time feedback -->
+    <div id="feedback" class="feedback hidden">
+      <span id="heardText"></span>
+    </div>
+
+    <!-- fallback text input in case mic isn't supported/allowed -->
+    <div class="text-input-row">
+      <input type="text" id="textCommand" placeholder="...or type a command here" />
+      <button id="sendTextBtn">Send</button>
+    </div>
+
+    <!-- search bar for voice/typed search with price filter -->
+    <div class="search-row">
+      <input type="text" id="searchBox" placeholder="Search items (e.g. apples under 5)" />
+    </div>
+
+    <!-- smart suggestions box -->
+    <div class="suggestions" id="suggestions">
+      <h3>Smart Suggestions</h3>
+      <div id="suggestionList" class="chip-row"></div>
+    </div>
+
+    <!-- the actual shopping list, grouped by category -->
+    <div class="list-section">
+      <h3>Your Shopping List</h3>
+      <div id="shoppingList" class="shopping-list">
+        <p class="empty-msg" id="emptyMsg">Your list is empty. Try saying "Add milk".</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
