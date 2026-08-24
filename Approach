@@ -1,0 +1,11 @@
+In order not to overcomplicate the thing,
+I went with a simple one-page application written with vanilla JavaScript
+without using any framework since voice commands processing is the core requirement, 
+and not the structure of the project itself. First of all, Web Speech API does all the work of capturing speech 
+and translating it into text, after which a very simple rule-based parser finds the necessary keywords such as "add," "remove," and "find" 
+and extracts quantity and item name from the sentence. It is not an NLP model, but it serves its purpose quite well, covering the variety of the phrasing mentioned in the brief.
+
+The item is then checked against a small hard-coded list for category and substitution. 
+In case nothing matches, the "Other" category is used by default. Recommendations are formed based on a few staples
+and one seasonal item according to the current month. There is no backend at all, and everything works in the browser memory,
+meaning the setup cost is zero and corresponds to the timeframe set for this task. The text input field is provided as the backup option because not all browsers support speech recognition.
